@@ -1,7 +1,7 @@
 CXX=g++
 LINK.o = $(LINK.cc)
 # CXXFLAGS=-Wall -Wextra -Werror -pedantic -std=c++20 -fcoroutines -g
-CXXFLAGS=-Wall -Wextra -Werror -pedantic -std=c++20 -fcoroutines -g -fsanitize=address
+CXXFLAGS=-Wall -Wextra -Werror -pedantic -std=c++20 -fcoroutines 
 LD=g++
 
 OBJ = main.o io_context.o socket_accept_operation.o socket_recv_operation.o socket_send_operation.o socket.o

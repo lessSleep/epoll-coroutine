@@ -45,7 +45,7 @@ Socket::~Socket()
     if (fd_ == -1)
         return;
     io_context_.detach(this);
-    std::cout << "close(" << fd_ << ")\n";
+    //std::cout << "close(" << fd_ << ")\n";
     close(fd_);
 }
 

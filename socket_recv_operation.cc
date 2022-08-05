@@ -13,18 +13,18 @@ SocketRecvOperation::SocketRecvOperation(Socket* socket,
     , len_{len}
 {
     socket->io_context_.watchRead(socket);
-    std::cout << "socket_recv_operation\n";
+    //std::cout << "socket_recv_operation\n";
 }
 
 SocketRecvOperation::~SocketRecvOperation()
 {
     socket->io_context_.unwatchRead(socket);
-    std::cout << "~socket_recv_operation\n";
+    //std::cout << "~socket_recv_operation\n";
 }
 
 ssize_t SocketRecvOperation::syscall()
 {
-    std::cout << "recv(" << socket->fd_ << ", buffer_, len_, 0)\n";
+    //std::cout << "recv(" << socket->fd_ << ", buffer_, len_, 0)\n";
     return recv(socket->fd_, buffer_, len_, 0);
 }
 

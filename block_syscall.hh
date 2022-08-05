@@ -31,7 +31,7 @@ public:
 
     ReturnValue await_resume()
     {
-        std::cout << "await_resume\n";
+        //std::cout << "await_resume\n";
         if (haveSuspend_)
             returnValue_ = static_cast<SyscallOpt*>(this)->syscall();
         return returnValue_;

@@ -42,6 +42,17 @@ public:
         return true;
     }
 
+    void closeFd()
+    {
+     
+        io_context_.detach(this);
+        //std::cout << "close(" << fd_ << ")\n";
+        close(fd_);
+        fd_ = -1;
+
+    }
+
+
 private:
     friend SocketAcceptOperation;
     friend SocketRecvOperation;

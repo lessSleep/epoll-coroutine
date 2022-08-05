@@ -13,18 +13,18 @@ SocketSendOperation::SocketSendOperation(Socket* socket,
     , len_{len}
 {
     socket->io_context_.watchWrite(socket);
-    std::cout << "socket_send_operation\n";
+    //std::cout << "socket_send_operation\n";
 }
 
 SocketSendOperation::~SocketSendOperation()
 {
     socket->io_context_.unwatchWrite(socket);
-    std::cout << "~socket_send_operation\n";
+    //std::cout << "~socket_send_operation\n";
 }
 
 ssize_t SocketSendOperation::syscall()
 {
-    std::cout << "send(" << socket->fd_ << ", buffer_, len_, 0)\n";
+    //std::cout << "send(" << socket->fd_ << ", buffer_, len_, 0)\n";
     return send(socket->fd_, buffer_, len_, 0);
 }
 
