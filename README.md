@@ -18,9 +18,10 @@ Inspired by:
 * handling error
 * clean (remove logging, ...)
 
-test with ab
-start:
-./main or ./epweb-dk
-test:
- ab -n 200000  -c 2 http://127.0.0.1:3090/index.html
+## test with ab
+
+* start:
+* ./main or ./epweb-dk
+* test:
+* ab -n 200000  -c 2 http://127.0.0.1:3090/index.html
 
