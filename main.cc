@@ -23,8 +23,9 @@ std::task<bool> inside_loop(Socket& socket)
     co_return true;
 }
 */
+
 #define BUFFER                                                                  \
-  "HTTP/1.1 200 OK\r\nContent-Length: 104\r\nConnection: "                      \
+  "HTTP/1.1 200 OK\r\nContent-Length: 102\r\nConnection: "                      \
   "close\r\nContent-Type: text/html;charset=utf-8\r\n\r\n <html> 响应数据 " \
   "<head> <title>HTTP响应示例<title> </head>  <body> Hello HTTP! </body> "  \
   "</html>"
@@ -65,13 +66,13 @@ std::task<> accept(Socket &listen) {
     auto socket = co_await listen.accept();
     auto t = echo_socket(socket);
 
-      //std::thread([&]() {
+    //std::thread([&]() {
         // 协程真正有意思的地方是，它可以由不同的线程去resume，这会很有意义。
-        t.resume();
+    t.resume();
         
         // 这里依旧输出9，上面一个c.resume()之后，test函数已经跳出循环返回了，已经满足了_Handle.done()，不会再继续真正的_Handle.resume();
         //std::cout << (int)c.resume() << std::endl;
-      //}).join();
+    //}).join();
 
     
   }
@@ -79,7 +80,7 @@ std::task<> accept(Socket &listen) {
 
 int main() {
   IOContext io_context{};
-  Socket listen{"3490", io_context};
+  Socket listen{"3090", io_context};
   auto t = accept(listen); 
   // 协程真正有意思的地方是，它可以由不同的线程去resume，这会很有意义。
   t.resume();
